@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vivid Tints - Professional Car Tinting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #121212;
+            --secondary: #1a1a1a;
+            --accent: #ff5e00;
+            --text: #f5f5f5;
+            --light-text: #aaa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 94, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/logo.png') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-tagline {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+        
+        .hero-title span {
+            color: var(--accent);
+        }
+        
+        .hero-text {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+        
+        .hero-features {
+            display: flex;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-feature {
+            margin-right: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .hero-feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .hero-feature p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .hero-buttons .btn {
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        #about {
+            background-color: var(--secondary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Benefits Section */
+        #benefits {
+            background-color: var(--primary);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: var(--secondary);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .benefit-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        /* Portfolio Section */
+        #portfolio {
+            background-color: var(--primary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 15px;
+            transform: translateY(80px);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .portfolio-overlay p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        /* Process Section */
+        #process {
+            background-color: var(--secondary);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .step-number {
+            background-color: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Section */
+        #cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/logo.png') no-repeat center center/cover;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            color: var(--light-text);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        
+        /* Testimonials Section */
+        #testimonials {
+            background-color: var(--primary);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: var(--secondary);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        .testimonial-role {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: var(--secondary);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--primary);
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            margin: 0 12px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            margin-bottom: 25px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            line-height: 38px;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: var(--light-text);
+            font-size: 0.8rem;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--secondary);
+                z-index: 1001;
+                transition: right 0.3s ease;
+                padding: 80px 30px;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 12px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+            }
+            
+            .hero-feature {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-buttons .btn {
+                margin-bottom: 15px;
+                margin-right: 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">VIVID<span>TINTZ</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tagline fade-in">SLEEK. STYLISH. SECURE</p>
+                <h1 class="hero-title fade-in delay-1">Elevate Your <span>Drive</span> with <span>Vivid Tints</span></h1>
+                <p class="hero-text fade-in delay-1">Experience professional car tinting services that combine style, comfort, and protection for your vehicle.</p>
+                <div class="hero-features fade-in delay-2">
+                    <div class="hero-feature">
+                        <h3>PROFESSIONAL</h3>
+                        <p>APPLICATION</p>
+                    </div>
+                    <div class="hero-feature">
+                        <h3>ENHANCED</h3>
+                        <p>PRIVACY</p>
+                    </div>
+                </div>
+                <div class="hero-buttons fade-in delay-3">
+                    <a href="#contact" class="btn">CONTACT US <i class="fas fa-arrow-right"></i></a>
+                    <a href="#benefits" class="btn btn-outline">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Benefits</h2>
+                <p>Discover what makes our tinting services stand out</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <h3>UV Protection</h3>
+                    <p>Safeguard your vehicle's interior and passengers from harmful UV rays.</p>
+                </div>
+                <div class="benefit-card fade-in delay-1">
+                    <h3>Enhanced Privacy</h3>
+                    <p>Enjoy a discreet and private driving experience.</p>
+                </div>
+                <div class="benefit-card fade-in delay-2">
+                    <h3>Stylish Aesthetics</h3>
+                    <p>Upgrade your vehicle's look with sleek and modern tinting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Vivid Tints?</h2>
+                <p>The Perfect Blend of Style and Functionality</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Discover the advantages of professional car tinting, from UV protection to enhanced privacy and sleek aesthetics.</p>
+                    <p>Our expert technicians use only premium materials and cutting-edge techniques to deliver flawless results that enhance your vehicle's appearance while providing superior protection.</p>
+                    <p>With years of experience in the industry, we've perfected our craft to offer you the best tinting solutions tailored to your specific needs.</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/redgolf.jpg" alt="Car Tinting Process" class="fade-in">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Tinting Portfolio</h2>
+                <p>Explore a selection of expertly tinted vehicles showcasing Vivid Tints' craftsmanship.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in">
+                    <img src="img/blackgolf.jpg" alt="GOLF GTI">
+                    <div class="portfolio-overlay">
+                        <h3>GOLF GTI</h3>
+                        <p>UV Protection</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in delay-1">
+                    <img src="img/audinew.jpg" alt="AUDI A3">
+                    <div class="portfolio-overlay">
+                        <h3>AUDI A3</h3>
+                        <p>Privacy Enhancement</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in delay-2">
+                    <img src="img/bluegolfnew.jpg" alt="VW GOLF">
+                    <div class="portfolio-overlay">
+                        <h3>VW GOLF</h3>
+                        <p>Stylish Aesthetics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Tinting Process</h2>
+                <p>From consultation to application, we ensure a seamless and satisfying experience.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Consultation & Selection</h3>
+                        <p>We discuss your needs and recommend the perfect tint solution for your vehicle.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in delay-1">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Preparation & Precision</h3>
+                        <p>Your vehicle is meticulously prepared to ensure perfect application conditions.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in delay-2">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Professional Application</h3>
+                        <p>Our certified technicians apply your selected tint with precision and care.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in delay-3">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Quality Assurance</h3>
+                        <p>Every vehicle undergoes rigorous inspection before delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from satisfied vivid Tints clients</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"Vivid Tints transformed my car into a sleek and stylish ride while providing much-needed privacy and UV protection. Highly recommend their professional service!"</p>
+                    <div class="testimonial-author">mohammed ali</div>
+                    <div class="testimonial-role">Satisfied Customer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Ready to Transform Your Vehicle?</h2>
+                <p>Book your car tinting service today and experience the vivid Tint difference.</p>
+                <a href="booking/appointment.html" class="btn">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+                <p>Ready to elevate your vehicle? Contact us for a consultation.</p>
+            </div>
+            <form id="contactForm" class="contact-form">
+               <div class="form-group fade-in">
+    <input type="text" id="contactName" placeholder="Your Name" required>
+</div>
+<div class="form-group fade-in delay-1">
+    <input type="email" id="contactEmail" placeholder="Your Email" required>
+</div>
+<div class="form-group fade-in delay-1">
+    <input type="tel" id="contactPhone" placeholder="Your Phone">
+</div>
+<div class="form-group fade-in delay-2">
+    <select id="contactService" required>
+        <option value="">Select Service</option>
+        <option value="standard">Standard Tinting</option>
+        <option value="premium">Premium Tinting</option>
+        <option value="ceramic">Ceramic Coating</option>
+        <option value="custom">Custom Solution</option>
+    </select>
+</div>
+<div class="form-group fade-in delay-2">
+    <textarea id="contactMessage" placeholder="Your Message" rows="5"></textarea>
+</div>
+                <button type="submit" class="btn fade-in delay-3">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">VIVID<span>TINTS</span></div>
+            <div class="footer-links">
+                <a href="#hero">Home</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#process">Process</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="copyright">Made in Wegic © 2023 Vivid Tints. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const nav = document.getElementById('nav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Form submission - MAIN FIXED VERSION
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+            <span class="spinner-border spinner-border-sm"></span>
+            Sending...
+        `;
+
+        try {
+            // Collect form data using IDs
+            const formData = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                phone: document.getElementById('contactPhone').value,
+                service: document.getElementById('contactService').value,
+                message: document.getElementById('contactMessage').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Validate email
+            if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+                throw new Error("Please enter a valid email address");
+            }
+
+            // Azure Function details
+            const functionUrl = 'https://backendforvividtints-bhavccetcubrhva6.ukwest-01.azurewebsites.net/api/HttpTrigger2';
+const functionCode = 'E5wRoRo2W_OKDu2lctznaCA8a8YFbzX6pXhwi-8jh9tzAzFuUm9ZtQ==';
+
+            
+            const response = await fetch(`${functionUrl}?code=${functionCode}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error(`Server responded with ${response.status}`);
+            }
+
+            // Success handling
+            const confirmation = document.createElement('div');
+            confirmation.className = 'alert alert-success mt-3';
+            confirmation.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                Thank you! Your message has been sent.
+            `;
+            this.parentNode.insertBefore(confirmation, this.nextSibling);
+            this.reset();
+            
+            setTimeout(() => confirmation.remove(), 5000);
+            
+        } catch (error) {
+            console.error('Error:', error);
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'alert alert-danger mt-3';
+            errorDiv.textContent = error.message;
+            this.parentNode.insertBefore(errorDiv, this.nextSibling);
+            setTimeout(() => errorDiv.remove(), 5000);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
+    
+    // Animation on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.fade-in');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (elementPosition < screenPosition) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+</script>
+</body>
+</html>
